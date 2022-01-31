@@ -28,12 +28,14 @@ const pizzaController = {
             res.status(400).json(err)
         })
     },
-    //createPizza
-    createPizza({body},res){
-        Pizza.create(body)
-        .then(dbPizzaData=>res.json(dbPizzaData))
-        .catch(err=>res.status(400).json(err))
-    },
+  
+      // createPizza
+  createPizza({ body }, res) {
+    Pizza.create(body)
+      .then(dbPizzaData => res.json(dbPizzaData))
+      .catch(err => res.json(err));
+  },
+
     //update a pizza by id
     updatePizza({params,body},res){
         Pizza.findByIdAndUpdate({_id:params.id},body,{new:true})
